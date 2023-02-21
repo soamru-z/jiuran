@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,40 +13,50 @@
         }
         .box {
             overflow: hidden;
-            border: 3px solid red;
-            background-color: #ccc;
-            padding-left: 200px;
-            padding-right: 150px;
         }
         .item {
-            float: left;
             color: #fff;
             font-size: 20px;
+            float: left;
         }
-        .content {
+
+        .container {
             width: 100%;
+            background-color: #ccc;
+        }
+
+        .content {
             height: 200px;
+            margin-left: 200px;
+            margin-right: 150px;
             background-color: greenyellow;
+
         }
-        .left {
+
+        .left-item {
             width: 200px;
-            background-color: red;
             margin-left: -100%;
-            position: relative;
-            right: 200px;
+            background-color: red;
         }
-        .right {
+
+        .right-item {
             width: 150px;
-            margin-right: -150px;
-            background-color: lightblue ;
+            margin-left: -150px;
+            background-color: lightblue;
         }
     </style>
 </head>
+
 <body>
     <div class="box">
-        <div class="content item">如何实现圣杯布局</div>
-        <div class="left item">left</div>
-        <div class="right item">right</div>
+        <div class="container item">
+            <div class="content">@说人话的前端-bilibili</div>
+        </div>
+
+        <div class="left-item item">left-item</div>
+        <div class="right-item item">right-item</div>
     </div>
+
 </body>
+
 </html>

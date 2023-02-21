@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            /* 案例一二四
+            position: relative; */
+            /* 案例三：可以没有高一定要有宽 
+            display: table-cell;
+            vertical-align: middle;*/
+
+            /* 案例五:又宽高和没宽高都可以垂直居中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 500px;
+            height: 500px;
+            border: 5px solid red;
+        }
+        .item {
+            
+            /* 案例一二四
+            position: absolute; */
+            /* 案例一
+            left: 50%;
+            top: 50%;
+            margin-top: -150px;
+            margin-left: -100px; */
+
+            /* 案例二：子级必须有宽和高
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto; */
+
+            /* 案例三：可以没有高一定要有宽 
+            margin: auto;*/
+
+            /* 案例四 
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);*/
+
+            width: 200px;
+            height: 300px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">手写垂直水平居中</div>
+    </div>
+</body>
+</html>
