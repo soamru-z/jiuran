@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-1、px，em，rem，vw，vh的区别1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            font-size: 10px;
+        }
+        div {
+            /* width: 200px; */
+            /* height: 200px; */
+
+            /* 
+            vw:宽
+            vh:高
+            vw和vh会根据视口的大小来进行计算
+             */
+            /* width: 80vw;
+            height: 80vh; */
+            
+            /* 
+            vmax和vmin
+            vmax：是根据视口的最大值进行计算的;例如视口的宽为1100px高为720px,那1vmax的值就是11px
+            vmin：是根据视口的最笑值进行计算的;例如视口的宽为1100px高为720px,那1vmin的值就是7.2px
+             */
+            width: 100vmax;
+            height: 100vmin;
+
+            /* em会动态的根据当前元素的font-size进行计算 */
+            /* text-indent: 3em; */
+
+            /* rem是根据html的font-size来进行计算的 */
+            /* text-indent: 3rem; */
+
+            font-size: 20px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        有什么区别有什么区别px、em、rem、vw、vh有什么区别
+    </div>
+</body>
+</html>

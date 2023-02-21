@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {
+            color: red;
+        }
+        span {
+            color:aqua !important;
+            font-size: 50px;
+        }
+        .span {
+            color: yellow;
+        } 
+        #div {
+            color: rebeccapurple;
+            font-size: 50px;
+        }
+        span {
+            color: yellow;
+        } */
+        
+        /* #div .span {
+            color: red;
+            font-size: 50px;
+        }
+        .div .p .span {
+            color: yellow;
+        } */
+
+        /* 当优先级相等是谁在下面先执行谁 */
+        /* .div .p .span {
+            color: yellow;
+        }
+        .div .span:hover {
+            color: mediumspringgreen;
+        } */
+
+        /* 
+            行间 id class 标签
+             A    B   C    D
+             0    1   1    0    #div .span
+             0    0   3    0    .div .p .span
+             0    0   3    0    .div .span:hover
+        */
+    </style>
+</head>
+<body>
+    <div id="div" class="div">
+        <p id="p" class="p">
+            <span  id="span" class="span">谈谈你对CSS选择器优先级的理解</span>
+        </p>
+    </div>
+</body>
+</html>
