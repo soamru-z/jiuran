@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person {
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            sayHi(){
+                console.log(`${this.name}hi 我${this.age}岁`);
+            }
+        }
+        // 子级继承
+        class Student extends Person {
+            constructor(name,age,sex){
+                super(name,age);// 继承父级的name，age
+                this.sex = sex
+            }
+            learn(){
+                console.log(`我是${this.name}我${this.age}岁${this.sex}`);
+            }
+        }
+        // 实例化
+        const x = new Student("张三",19,"男");
+        x.sayHi();
+        x.learn();
+        // instanceof
+        console.log(x instanceof Student);
+    </script>
+</body>
+</html>
