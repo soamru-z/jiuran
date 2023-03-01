@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">
+        test
+    </button>
+    <script>
+        /*
+        // 严格模式：this——>undefined
+        "use strict"
+        // 普通模式：this——>window
+        function a(){
+            console.log(this);
+        }
+        a()
+        */
+
+        /*
+        function a(){
+            console.log(this);
+        }
+        // 情况1：什么都不传，this——>window
+        // call
+        // a.call()
+        // a.call(undefined)
+        // a.call(null)
+
+        // 情况2：传什么，this就是什么
+        // apply
+        // a.apply(123)
+        // a.apply(undefined)
+        // a.apply(null)
+        
+        // bind：bind需要一个函数接收
+        const fn = a.bind({x:1902})
+        fn()
+        */
+
+        /* 定时器中的this
+            情况一：定时器+funtion  this——>window
+            情况二：定时器+箭头函数  this——>上层作用域的this
+        */
+
+        //情况一：this——>window 
+        /*例一
+         setTimeout(function () {
+            console.log(this);
+        }, 100);
+        */
+
+        /*例二
+         function fn() {
+            setTimeout(function () {
+                console.log(this);
+            }, 100);
+        }
+        fn.call({x:100});
+        */
+
+        /*例三
+         const a = {
+            fn(){
+                setTimeout(function(){
+                    console.log(this);
+                },100);
+            }
+        }
+         a.fn();
+        */
+
+        // 情况二
+
+        /* 例一
+        class Obj{
+            fn(){
+                setTimeout(() => {
+                    console.log(this);
+                }, 100);
+            }
+        }
+        const o = new Obj()
+        o.fn()
+        */
+
+        /*例二
+        function fn(){
+            setTimeout(() => {
+                console.log(this);
+            }, 100);
+        }
+        fn.call({x:100})
+        */
+
+
+
+        /*
+        箭头函数中的 this
+        情况1：有function作用域的，this是上层作用域的this
+        情况2：没有function作用域的，this是window
+        */
+
+        /*
+        class Obj{
+            say=()=>{
+                console.log(this); // this——> Obj{say:f}
+            }
+        }
+        const obj1 = new Obj;
+        obj1.say();
+
+        const obj2 ={ 
+            say:()=>{
+                console.log(this);// this ——>window
+            }
+        }
+        obj2.say()
+        */
+
+        const oBtn = document.getElementById("btn");
+        // oBtn.onclick = function(){
+        //     console.log(this);
+        // }
+        oBtn.onclick = ()=>{
+            console.log(this);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn(a, b, c, d, e) {
+            console.log(this);
+            console.log(a, b, c, d, e);
+
+            return "this is return"
+        }
+
+        // bind会返回一个函数要用一个变量接收bind返回到函数
+        // const cb = fn.bind({x:10},1,2,3);
+        // console.log(cb());
+
+        // 手写bind
+
+        Function.prototype.myBind = function () {
+            const fn = this;
+            // arguments是一个类数组：[{ x: 10 }, 1, 2, 3]
+            // const _this =  arguments[0];
+
+            // 将arguments变成数组，用一个变量接收数组[1, 2, 3, 5, 6]
+            const arg = Array.prototype.slice.call(arguments)
+            // 用shift方法获取[{ x: 140 }，1, 2, 3, 5, 6]中的{ x: 140 }
+            const _this = arg.shift()
+
+            return function () {
+                return fn.apply(_this, arg);
+            }
+        }
+
+        const cb = fn.myBind({ x: 140 }, 1, 2, 3, 5, 6);
+        console.log(cb());
+    </script>
+</body>
+
+</html>

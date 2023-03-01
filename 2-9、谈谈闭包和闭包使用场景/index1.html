@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>0</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <script>
+        //情况一：函数当作返回值被返回
+        // function fn(){
+        //     const a = 1;
+        //     return function(){
+        //         console.log(a); // 1
+        //     }
+        // }
+        // const a = 5;
+        // const cb = fn();
+        // cb()
+
+        // 情况二：函数当作参数传覅
+        // function fn(cb){
+        //     const a = 100
+        //     cb()
+        // }
+        // const a = 500;
+        // fn(function(){
+        //     console.log(a); // 500
+        // });
+
+        //情况三：自执行匿名函数
+        // (function(index){
+        //     console.log(index); // 10
+        // })(10)
+
+
+        // const btn = document.querySelectorAll("button");
+        // 方法一
+        // for(var i = 0;i<btn.length;i++){
+        //     (function(index){
+        //         btn[i].onclick = function(){
+        //             console.log(index);
+        //         }
+        //     })(i)
+        // }
+
+        // 方法二
+        // for(let i = 0;i<btn.length;i++){
+        //     btn[i].onclick = function(){
+        //         console.log(i);
+        //     }
+        // }
+
+        //隐藏变量
+        function fn(){
+            const data = {};
+
+            return {
+                set : function(key,val){
+                    data[key] = val;
+                },
+                get : function(val){
+                    return data[val]
+                },
+            };
+        }
+        const json = fn();
+        json.set("age",18);
+        console.log(json.get("age"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+        class Student extends Person {
+            constructor(name, age) {
+                super(name)
+
+                this.age = age
+            }
+        }
+        const zhangsan = new Student("张三", 18);
+
+        // console.log(zhangsan instanceof Student);
+        // console.log(zhangsan instanceof Person);
+        // console.log(zhangsan instanceof Object);
+        // console.log(zhangsan instanceof Array);
+
+        console.log(myInstanceof(zhangsan, Student)); // true
+        console.log(myInstanceof(zhangsan, Person)); // true
+        console.log(myInstanceof(zhangsan, Object)); // true
+        console.log(myInstanceof(zhangsan, Array)); // false
+        function myInstanceof(obj1, obj2) {
+            objPortotype = obj1.__proto__;
+            while (true) {
+                
+                if(objPortotype == null){
+                    return false;
+                }
+                if (objPortotype === obj2.prototype) {
+                    return true;
+                }
+
+                objPortotype=objPortotype.__proto__
+            }
+
+        }
+    </script>
+</body>
+
+</html>
